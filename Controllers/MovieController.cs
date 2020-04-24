@@ -26,8 +26,8 @@ namespace VidlyWebApp.Controllers
 
         public ActionResult Edit(int Id)
         {
-            
-            return Content("Id=" +Id);
+
+            return Content("Id=" + Id);
         }
 
 
@@ -39,14 +39,15 @@ namespace VidlyWebApp.Controllers
 
             if (String.IsNullOrWhiteSpace(SortBy))
                 SortBy = "Name";
-                
-            return Content(string.Format("PageIndex={0}, SortBy= {1}",PageIndex,SortBy));
+
+            return Content(string.Format("PageIndex={0}, SortBy= {1}", PageIndex, SortBy));
         }
 
 
 
 
-
+        //[Route("movies/release/{year}/{month}")]
+        [Route("movies/release/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
 
