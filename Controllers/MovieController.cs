@@ -45,5 +45,15 @@ namespace VidlyWebApp.Controllers
 
 
 
+
+
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+
+            return Content(year +"/" +month);
+        }
+
+
+
     }
 }
