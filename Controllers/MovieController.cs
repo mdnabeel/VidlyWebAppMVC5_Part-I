@@ -4,17 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VidlyWebApp.Models;
+using VidlyWebApp.ViewModel;
 
 namespace VidlyWebApp.Controllers
 {
     public class MovieController : Controller
     {
-        // GET: Movie
+        // GET: Movie/Random
         public ActionResult Random()
         {
             var movie = new Movies() { MovieName = "Money Heist" };
+            var customer = new List<Customers>
+            {
+                new Customers {CustomerName = "Customer1" },
+                new Customers {CustomerName = "Customer2" },
+                new Customers {CustomerName = "Customer3" },
+                new Customers {CustomerName = "Customer4" },
+                
+            };
 
-            return View(movie);
+            var viewmodel = new RandomMovieViewModel()
+            {
+                Movie = movie,
+                Customer = customer
+
+            };
+
+            return View(viewmodel);
 
             //return Content("Hello World");
             //return HttpNotFound();
@@ -53,6 +69,12 @@ namespace VidlyWebApp.Controllers
 
             return Content(year +"/" +month);
         }
+
+
+
+
+        
+
 
 
 
