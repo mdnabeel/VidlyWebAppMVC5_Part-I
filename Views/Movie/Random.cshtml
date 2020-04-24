@@ -4,8 +4,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Movie.MovieName</h2>
+@*
+..............Implementation of Razor View.....................    
+*@
 
+@{ 
+    var ViewClass = Model.Customer.Count > 3 ? "Popular" : null;
+}
+<h2 class=@ViewClass>@Model.Movie.MovieName</h2>
+
+
+@if (Model.Customer.Count == 0)
+{
+    <p>No One Rented Any Movie</p>
+
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customer)
+        {
+            <li>
+                @customer.CustomerName;
+
+            </li>
+        }
+    </ul>
+
+
+}
 
 
 
